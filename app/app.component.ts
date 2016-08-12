@@ -23,7 +23,7 @@ export class AppComponent {
  constructor(){
    this.meals = [
      new Meal("Burrito", 0, "Chicken Burrito with beans and rice", 1000, "2016-08-11"),
-     new Meal("Pizza", 1, "1 slice of veggie pizza", 450, "2016-08-10"),
+     new Meal("Pizza", 1, "1 slice of veggie pizza", 450, "2016-08-11"),
      new Meal("Green Salad", 2, "Small leafy salad with low-fat dressing", 330, "2016-08-11")
    ];
   }
