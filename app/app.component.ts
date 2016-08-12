@@ -26,8 +26,7 @@ export class AppComponent {
      new Meal("Pizza", 1, "1 slice of veggie pizza", 450),
      new Meal("Green Salad", 2, "Small leafy salad with low-fat dressing", 330)
    ];
- }
+  }
  mealWasSelected(clickedMeal: Meal): void {
-   console.log(clickedMeal);
- }
+  }
 }
