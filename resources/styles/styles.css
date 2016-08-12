@@ -1,0 +1,12 @@
+h1, p {
+  text-align: center;
+}
+
+button {
+  display: block;
+  margin: 0px auto;
+}
+
+input {
+  margin: 20px 40px 20px 40px;
+}

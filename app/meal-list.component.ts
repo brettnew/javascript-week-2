@@ -40,13 +40,12 @@ export class MealListComponent {
     this.onMealSelect = new EventEmitter();
   }
   mealClicked(clickedMeal: Meal): void {
-    console.log(clickedMeal, "child");
     this.selectedMeal = clickedMeal;
     this.onMealSelect.emit(clickedMeal);
   }
   createMeal(params): void{
     this.mealList.push(
-      new Meal(params[0], this.mealList.length, params[1], parseInt(params[2]))
+      new Meal(params[0], this.mealList.length, params[1], parseInt(params[2]), params[3])
     );
   }
   onChange(filterOption) {
