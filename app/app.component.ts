@@ -1,29 +1,31 @@
-import{Component} from 'angular2/core';
-import{Meal} from './meal.model';
-import{MealListComponent} from './meal-list.component'
+import { Component } from 'angular2/core';
+import { Meal } from './meal.model';
+import { MealListComponent } from './meal-list.component';
 
 @Component({
   selector: 'my-app',
-  directives: [],
+  directives: [MealListComponent],
   template: `
-  <div class="container">
-    <h1>Meal Tracker</h1>
-    <meal-list
-    [mealList]="meals"
-    (onMealSelect)="mealWasSelected($event)">
-    </meal-list>
-  </div>
+    <div class="container">
+      <h1>Meal Listing</h1>
+      <hr>
+      <meal-list
+        [mealList]="meals"
+        (onMealSelect)="mealWasSelected($event)">
+      </meal-list>
+    </div>
   `
 })
 
-export class AppComponent{
-  public meals: Meal[];
-  constructor(){
-    this.meals = [
-      new Meal("Pizza", "1 slice of pepperoni pizza", 550),
-      new Meal("Sandwich", "Half a turkey and cheese sandwich", 475)
-    ];
-  }
-  mealWasSelected(clickedMeal: Meal): void {
-  }
+export class AppComponent {
+ public meals: Meal[];
+ constructor(){
+   this.meals = [
+     new Meal("Burrito", 0, "Chicken Burrito with beans and rice", 1000),
+     new Meal("Pizza", 1, "1 slice of veggie pizza", 450),
+   ];
+ }
+ mealWasSelected(clickedMeal: Meal): void {
+   console.log(clickedMeal);
+ }
 }

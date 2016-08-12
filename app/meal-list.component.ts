@@ -1,26 +1,33 @@
-import {Component, EventEmitter} from 'angular2/core';
-import {AppComponent} from './app.component';
-import {Meal} from './meal.model';
+
+import { Component, EventEmitter } from 'angular2/core';
+import { MealComponent } from './meal.component';
+import { Meal } from './meal.model';
+
 
 @Component({
   selector: 'meal-list',
   inputs: ['mealList'],
   outputs: ['onMealSelect'],
-  directives: [],
+  directives: [MealComponent],
   template: `
-    <edit-meal-details #ngIf="selectedMeal" [meal]="selectedMeal">
-    </edit-meal-details>
+  <meal-display *ngFor="#currentMeal of mealList"
+  (click)="mealClicked(currentMeal)"
+  [class.selected]="currentMeal === selectedMeal"
+  [meal]="currentMeal">
+  </meal-display>
   `
 })
 
-export class MealListComponent{
+export class MealListComponent {
   public mealList: Meal[];
   public onMealSelect: EventEmitter<Meal>;
   public selectedMeal: Meal;
+  public filterDone: string = "notDone";
   constructor() {
     this.onMealSelect = new EventEmitter();
   }
   mealClicked(clickedMeal: Meal): void {
+    console.log(clickedMeal, "child");
     this.selectedMeal = clickedMeal;
     this.onMealSelect.emit(clickedMeal);
   }
